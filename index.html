@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./media/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>Brightness</title>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="brightness">
+            <input type="range" id="range" min="10" max="100" value="100">
+        </div>
+    </div>
+    <div class="cursor"></div>
+
+    <script>
+        var cursor = document.querySelector(".cursor");
+        rangeInput = document.getElementById('range');
+        container = document.getElementsByClassName('container')[0];
+    
+        document.addEventListener("mousemove",function(event){
+        cursor.style.cssText = "left: " + event.clientX + "px; top: " + event.clientY + "px;";
+        });
+  
+        rangeInput.addEventListener("change",function(){
+          container.style.filter = "brightness(" + rangeInput.value + "%)";
+        });
+      </script>
+</body>
+</html>
